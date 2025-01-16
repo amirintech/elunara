@@ -2,13 +2,7 @@ import numpy as np
 
 
 class Value:
-    def __init__(
-        self,
-        data,
-        label="",
-        _children=(),
-        _operation="",
-    ):
+    def __init__(self, data, label="", _children=(), _operation=""):
         self.data = data
         self.label = label
         self.grad = 0
@@ -128,4 +122,6 @@ class Value:
 
     # ========== internal representation ==========
     def __repr__(self):
-        return f"Value(data={self.data}, label={self.label})"
+        if self.label:
+            return f"Value(data={self.data}, label={self.label})"
+        return f"Value(data={self.data})"
